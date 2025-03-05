@@ -50,7 +50,6 @@ def hide_some_word_chars(word_to_guess: str) -> list[str]:
 def init_game_state(word_to_guess: str) -> dict:
     return {
         'original_word_chars': list(word_to_guess),
-        # Получить слово со скрытыми симоволами
         'revealed_word_chars': hide_some_word_chars(word_to_guess),
         'max_attempts': 6,
         'player_attempts_done': 0
@@ -97,14 +96,6 @@ def is_end_of_game(game_state: dict) -> bool:
 
 def is_win(game_state: dict) -> bool:
     return '*' not in game_state['revealed_word_chars']
-
-
-def get_game_summary(game_state: dict) -> tuple[int, str]:
-    if is_win(game_state):
-        return (0, f'Победа! Вы отгадали все буквы! Полученное слово: {''.join(game_state["revealed_word_chars"])}.')
-    else:
-        return (0, f'Ваши попытки закончились. Вы проиграли')
-
 
 if __name__ == '__main__':
     words = [

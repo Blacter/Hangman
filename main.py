@@ -1,34 +1,38 @@
 import game
 import printer
+import input_handler
 
 file_word = './data/words.csv'
 
-print('Добро пожаловать в игру "Виселица"!\n')
+printer.out_greetings()
+printer.out_manual()
 
-printer.print_manual()
+printer.suggest_to_start_game()
 
-print('\nВы желаете начать новую игру?[Y/n]:')
-is_game_start = input('> ').lower()
+user_choice = input_handler.get_user_choice()
 
-while is_game_start == 'y':
+while user_choice:
     word = game.get_random_word(file_word)
     game_state = game.init_game_state(word)
 
     while not game.is_end_of_game(game_state):
         printer.draw_gibbet(game_state)
-        printer.print_current_revealed_chars(game_state)
-        printer.print_remaining_attempts(game_state)
+        printer.out_current_revealed_chars(game_state)
+        printer.out_remaining_attempts(game_state)
         
-        print(f'Введите следующую буву:')
-        assumed_letter = input('> ')
+        printer.suggest_input_letter()       
+        assumed_letter = input_handler.get_assumed_letter()
         code, move_result_msg = game.process_move(assumed_letter, game_state)
-        print(move_result_msg)
-        print('Press enter to continue')
+        printer.out_move_results(move_result_msg)
+        printer.suggest_to_continue()
         input()
-        print('_'*30)
+        printer.out_horizontal_separator()
+        
 
     printer.draw_gibbet(game_state)
-    print(game.get_game_summary(game_state)[1])
+    
+    printer.out_game_summary(game.is_win(game_state), game_state)
+    
 
-    print('Вы желаете начать новую игру?[Y/n]:')
-    is_game_start = input('> ').lower()
+    printer.suggest_to_start_game()
+    user_choice = input_handler.get_user_choice()
