@@ -113,7 +113,7 @@ if __name__ == '__main__':
         [34, 'импровизация'], [35, 'иллюминация']
     ]
 
-    test_number = 1  # Choose test number.
+    test_number = 3  # Choose test number.
 
     if test_number == 0:  # get_random_word
         print('TEST get_random_word')
@@ -147,15 +147,15 @@ if __name__ == '__main__':
         }
 
         print(
-            f'{process_move("е", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("е", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("е", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("е", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("м", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("м", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("о", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("о", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("г", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("г", game_state), game_state["revealed_word_chars"]}')
 
         print()
 
@@ -170,17 +170,17 @@ if __name__ == '__main__':
         }
 
         print(
-            f'{process_move("ю", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("ю", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("ю", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("ю", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("ю", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("ю", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("ю", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("ю", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("ю", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("ю", game_state), game_state["revealed_word_chars"]}')
         print(
-            f'{process_move("ю", game_state), game_state['revealed_word_chars']}')
+            f'{process_move("ю", game_state), game_state["revealed_word_chars"]}')
     elif test_number == 4:  # is_end_of_game
         game_state = {
             'original_word_chars': ['б', 'е', 'г', 'е', 'м', 'о', 'т'],
